@@ -51,13 +51,6 @@
         </form>
   </div>
   <div class="col-md-6" *ngIf="title.valid">
-      <div class="card" style="width: 18rem;">
-          <img class="card-img-top" src="{{productEdit.imageUrl}}">
-          <div class="card-body">
-            <h5 class="card-title">{{productEdit.title}}</h5>
-            <p class="card-text"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Indian_Rupee_symbol.svg/10px-Indian_Rupee_symbol.svg.png" alt="rupee">  {{productEdit.price}}</p>
-          </div>
-        </div>
-        
+      <product-card [product]="productEdit" [showActions]="false"></product-card>
   </div>
 </div>
