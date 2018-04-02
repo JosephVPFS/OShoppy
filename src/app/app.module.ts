@@ -29,6 +29,7 @@ import { CustomFormsModule } from 'ng2-validation';
 import { DataTableModule } from 'angular5-data-table';
 import { ProductsFilterComponent } from './products/products-filter/products-filter.component';
 import { ProductComponent } from './products/product/product.component';
+import { CartService } from './cart-service.service';
 
 
 @NgModule({
@@ -78,7 +79,8 @@ import { ProductComponent } from './products/product/product.component';
               AdminAuthGaurd,
               UserService,
               CategoryService,
-              ProductService
+              ProductService,
+              CartService
               ],
   bootstrap: [AppComponent]
 })
