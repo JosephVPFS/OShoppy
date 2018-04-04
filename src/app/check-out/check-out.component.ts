@@ -12,7 +12,7 @@ import { ShippingDetails } from '../models/shipping';
   styleUrls: ['./check-out.component.css']
 })
 export class CheckOutComponent implements OnInit {
-  shippingDetail : ShippingDetails;
+  shippingDetail : ShippingDetails = new ShippingDetails();
   cart : Cart;
   userId : string;
   constructor(private orderService : OrderService,
