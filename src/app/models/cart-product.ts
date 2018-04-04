@@ -1,10 +1,15 @@
 import { Product } from "./product";
 
 export class CartItem{
-    constructor(public product : Product, public quantity  : number){
-        
+    $key : string;
+    title : string;
+    price : number ;
+    imageUrl : string;
+    quantity : number;
+    constructor(init? : Partial<CartItem>){
+        Object.assign(this, init);
     }
     get totalPrice(){
-        return this.product.price*this.quantity;
+        return this.price*this.quantity;
     }
 }

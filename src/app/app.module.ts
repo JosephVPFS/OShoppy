@@ -30,6 +30,9 @@ import { DataTableModule } from 'angular5-data-table';
 import { ProductsFilterComponent } from './products/products-filter/products-filter.component';
 import { ProductComponent } from './products/product/product.component';
 import { CartService } from './cart-service.service';
+import { ProductQuantityComponent } from './product-quantity/product-quantity.component';
+import { OrderService } from './order.service';
+import { CartSummoryComponent } from './cart-summory/cart-summory.component';
 
 
 @NgModule({
@@ -47,7 +50,9 @@ import { CartService } from './cart-service.service';
     OrderSuccessComponent,
     ProductFormComponent,
     ProductsFilterComponent,
-    ProductComponent
+    ProductComponent,
+    ProductQuantityComponent,
+    CartSummoryComponent
   ],
   imports: [
     BrowserModule,
@@ -66,7 +71,7 @@ import { CartService } from './cart-service.service';
 
       {path:'check-out', component: CheckOutComponent, canActivate:[AuthGaurd]},
       {path:'my/orders', component: MyOrdersComponent, canActivate:[AuthGaurd]},
-      {path:'order-success', component: OrderSuccessComponent, canActivate:[AuthGaurd]},
+      {path:'order-success/:id', component: OrderSuccessComponent, canActivate:[AuthGaurd]},
 
       {path:'admin/orders', component: AdminOrdersComponent, canActivate:[AuthGaurd, AdminAuthGaurd]},
       {path:'admin/products/new', component: ProductFormComponent, canActivate:[AuthGaurd, AdminAuthGaurd]},
@@ -80,7 +85,8 @@ import { CartService } from './cart-service.service';
               UserService,
               CategoryService,
               ProductService,
-              CartService
+              CartService,
+              OrderService
               ],
   bootstrap: [AppComponent]
 })

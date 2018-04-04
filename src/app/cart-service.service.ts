@@ -4,6 +4,7 @@ import 'rxjs/add/operator/take';
 import 'rxjs/add/operator/map';
 import { Cart } from './models/cart';
 import {Observable} from 'rxjs/observable';
+import { Product } from './models/product';
 
 @Injectable()
 export class CartService {
@@ -41,15 +42,26 @@ export class CartService {
     this.updateCartQuantity(product, -1);
   }
 
-  private async updateCartQuantity(product, change){
+  private async updateCartQuantity(product : Product, change){
     let cartId = await this.getCartOrCreateId();
     let item$ = await this.getItem(cartId, product.$key);
-    let quantity = 0;
+    
     item$.take(1).subscribe(item => {
-      item$.update({
-        quantity : (item.quantity || 0) + change,
-        product : product
+      let quantity = (item.quantity || 0) + change;
+      if(quantity === 0)
+        item$.remove();
+      else item$.update({
+        quantity : quantity,
+        title : product.title,
+        price : product.price,
+        imageUrl : product.imageUrl
       })
     });
+  }
+
+  async removeAllItemsFromCart(){
+    let cartId = await this.getCartOrCreateId();
+    let cart = await this.db.object('/shopping-cart/'+cartId+"/items/");
+    cart.remove();
   }
 }

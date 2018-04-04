@@ -6,6 +6,7 @@ import { FirebaseObjectObservable, FirebaseListObservable } from 'angularfire2/d
 import 'rxjs/add/operator/switchMap'
 import { CartService } from '../cart-service.service';
 import { Subscription } from 'rxjs/Subscription';
+import { Cart } from '../models/cart';
 
 @Component({
   selector: 'app-products',

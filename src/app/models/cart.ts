@@ -1,11 +1,13 @@
 import { CartItem } from "./cart-product";
+import { Product } from "./product";
 
 export class Cart{
     cartItemsG : CartItem[] = [];
-    constructor(public items : {[key : string] : CartItem}){
+    constructor(public items : {[key : string] : CartItem} = {}){
         for(let pid in items){
             let item = items[pid];
-            this.cartItemsG.push(new CartItem(item.product, item.quantity));
+            let cartItem = new CartItem({...item, $key : pid});
+            this.cartItemsG.push(cartItem);
         }
     }
 
@@ -19,7 +21,7 @@ export class Cart{
     get totalPrice(){
         let totalPrice = 0;
         for(let item of this.cartItemsG)
-        totalPrice += item.quantity * item.product.price;
+        totalPrice += item.quantity * item.price;
         return totalPrice;
       }
     
@@ -27,4 +29,15 @@ export class Cart{
     get productIDs(){
         return Object.keys(this.items);
     }
+
+    
+    getQuantity(ite : CartItem){
+        let item = this.items[ite.$key];
+        if(!item){
+          return 0;
+        }
+        return (item) ? (item.quantity) ? item.quantity : 0 : 0;
+      }
+      
+      
 }
