@@ -1,0 +1,20 @@
+<h2>Shipping Details</h2>
+<form #f="ngForm" (ngSubmit)="pushOrder()">
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input [(ngModel)]="shippingDetail.name" name="name" type="text" id="name" class="form-control">
+    </div>
+    <div class="form-group">
+      <label for="line1">Address Line 1</label>
+      <input ngModel name="line1" [(ngModel)]="shippingDetail.line1"  id="line1" type="text" class="form-control">
+    </div>
+    <div class="form-group">
+      <label for="line2">Address Line 2</label>
+      <input ngModel name="line2" [(ngModel)]="shippingDetail.line2"  id="line2" type="text" class="form-control">
+    </div>
+    <div class="form-group">
+      <label for="ucity">City</label>
+      <input ngModel name="ucity" [(ngModel)]="shippingDetail.city"  id="ucity" type="text" class="form-control">
+    </div>
+    <button class="btn btn-primary">Submit</button>
+  </form>

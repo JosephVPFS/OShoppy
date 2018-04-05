@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import * as firebase from 'firebase';
 import { AuthService } from '../auth.service';
-import { AppUser } from '../models/app-user';
+import { AppUser } from 'shared/models/app-user';
 import 'rxjs/add/operator/map';
 import {Observable} from 'rxjs/observable';
 import { CartService } from '../cart-service.service';
-import { Cart } from '../models/cart';
+import { Cart } from 'shared/models/cart';
 
 @Component({
   selector: 'bs-navbar',

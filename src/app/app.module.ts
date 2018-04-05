@@ -33,6 +33,7 @@ import { CartService } from './cart-service.service';
 import { ProductQuantityComponent } from './product-quantity/product-quantity.component';
 import { OrderService } from './order.service';
 import { CartSummoryComponent } from './cart-summory/cart-summory.component';
+import { ShippingFormComponent } from './shipping-form/shipping-form.component';
 
 
 @NgModule({
@@ -52,7 +53,8 @@ import { CartSummoryComponent } from './cart-summory/cart-summory.component';
     ProductsFilterComponent,
     ProductComponent,
     ProductQuantityComponent,
-    CartSummoryComponent
+    CartSummoryComponent,
+    ShippingFormComponent
   ],
   imports: [
     BrowserModule,

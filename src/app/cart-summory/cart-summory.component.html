@@ -1,15 +1,15 @@
-<div class="card">
+<div *ngIf="cart" class="card myMargin">
     <div class="card-body">
       <h5 class="card-title">Order Summary</h5>
       <h6 class="card-subtitle mb-2 text-muted">You have {{cart.quantity}} Items in Your Cart!.</h6>
-      <div class="card-text">
+      <div class="card-text" *ngIf="cart.cartItemsG">
         <ul class="list-group list-group-flush">
           <li 
           *ngFor="let item of cart.cartItemsG"
           class="list-group-item">
             {{item.quantity}} * {{item.title}} <div class="float-right">{{item.totalPrice}}</div>
           </li>
-          <li class="list-group-item font-weight-bold">
+          <li class="list-group-item font-weight-bold myBgColor">
               Total
               <div class="float-right">{{cart.totalPrice}}</div>
             </li>

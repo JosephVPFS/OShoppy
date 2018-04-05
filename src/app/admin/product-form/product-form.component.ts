@@ -3,7 +3,7 @@ import { CategoryService } from '../../category.service';
 import { ProductService } from '../../product.service';
 import { Router, Route, ActivatedRoute } from '@angular/router';
 import 'rxjs/add/operator/take';
-import { Product } from '../../models/product';
+import { Product } from 'shared/models/product';
 
 @Component({
   selector: 'app-product-form',
